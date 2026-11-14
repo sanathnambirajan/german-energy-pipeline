@@ -1,0 +1,16 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+
+data/
+
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+logs/
+
+.idea/
+.vscode/
+dbt/.user.yml

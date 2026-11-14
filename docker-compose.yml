@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: energy_db
+    environment:
+      POSTGRES_USER: energy
+      POSTGRES_PASSWORD: energy
+      POSTGRES_DB: energy
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
