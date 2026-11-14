@@ -1,0 +1,13 @@
+series_name,source_label,category
+biomass,Biomass,renewable
+hydro,Hydro,renewable
+wind_offshore,Wind offshore,renewable
+wind_onshore,Wind onshore,renewable
+solar,Solar,renewable
+other_renewables,Other renewables,renewable
+nuclear,Nuclear,conventional
+lignite,Lignite,conventional
+hard_coal,Hard coal,conventional
+natural_gas,Natural gas,conventional
+pumped_storage,Pumped storage,conventional
+other_conventional,Other conventional,conventional

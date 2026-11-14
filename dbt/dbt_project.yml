@@ -1,0 +1,14 @@
+name: energy
+version: "1.0.0"
+profile: energy
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+models:
+  energy:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

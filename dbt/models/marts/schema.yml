@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: daily_generation_by_source
+    description: Electricity generation per day and energy source in MWh
+    columns:
+      - name: day
+        tests:
+          - not_null
+      - name: source
+        tests:
+          - not_null
+      - name: category
+        tests:
+          - accepted_values:
+              arguments:
+                values: ["renewable", "conventional"]
+
+  - name: daily_renewable_share
+    description: Share of renewables in total generation and in consumption per day
+    columns:
+      - name: day
+        tests:
+          - unique
+          - not_null
+      - name: total_generation_mwh
+        tests:
+          - not_null
+
+  - name: daily_price_stats
+    description: Daily statistics of the day-ahead price (DE-LU) in EUR/MWh
+    columns:
+      - name: day
+        tests:
+          - unique
+          - not_null
+      - name: avg_price
+        tests:
+          - not_null
+
+  - name: daily_overview
+    description: Renewable share and price per day joined together
+    columns:
+      - name: day
+        tests:
+          - unique
+          - not_null

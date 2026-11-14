@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: smard_hourly
+        description: Hourly values from the SMARD API, loaded by ingestion/smard_ingest.py
+        columns:
+          - name: filter_id
+            tests:
+              - not_null
+          - name: ts_ms
+            tests:
+              - not_null
