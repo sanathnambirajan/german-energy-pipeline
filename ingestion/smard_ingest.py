@@ -32,6 +32,9 @@ SERIES = {
 
 OVERLAP_MS = 8 * 24 * 60 * 60 * 1000
 
+# Series that stopped on purpose (nuclear phase-out, April 2023)
+ENDED_SERIES = {"nuclear"}
+
 
 def get_connection():
     return psycopg2.connect(
@@ -148,6 +151,8 @@ def check_freshness(conn, max_age_days=3):
     stale = []
 
     for filter_id, (name, region) in SERIES.items():
+        if name in ENDED_SERIES:
+            continue
         last_ts = get_last_timestamp(conn, filter_id, region)
         age_days = (now_ms - last_ts) / (24 * 60 * 60 * 1000) 
 
