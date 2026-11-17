@@ -142,6 +142,21 @@ def main():
     conn.close()
     print("done")
 
+def check_freshness(conn, max_age_days=3):
+    now_ms = int(time.time() * 1000)
+    stale = []
+
+    for filter_id, (name, region) in SERIES.items():
+        last_ts = get_last_timestamp(conn, filter_id, region)
+        age_days = ______   # BLANK 1: how many days old is last_ts?
+
+        if ______:          # BLANK 2: when is a series "stale"?
+            stale.append(f"{name} ({age_days:.1f} days old)")
+
+    if stale:
+        raise RuntimeError("No new data for: " + ", ".join(stale))
+    print("freshness check passed")
+
 
 if __name__ == "__main__":
     main()
