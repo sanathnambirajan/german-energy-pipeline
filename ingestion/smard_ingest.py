@@ -138,7 +138,8 @@ def main():
 
     for filter_id, (name, region) in SERIES.items():
         load_series(conn, filter_id, name, region)
-
+        
+    check_freshness(conn)
     conn.close()
     print("done")
 
@@ -148,9 +149,9 @@ def check_freshness(conn, max_age_days=3):
 
     for filter_id, (name, region) in SERIES.items():
         last_ts = get_last_timestamp(conn, filter_id, region)
-        age_days = ______   # BLANK 1: how many days old is last_ts?
+        age_days = (now_ms - last_ts) / (24 * 60 * 60 * 1000) 
 
-        if ______:          # BLANK 2: when is a series "stale"?
+        if age_days > max_age_days:
             stale.append(f"{name} ({age_days:.1f} days old)")
 
     if stale:
