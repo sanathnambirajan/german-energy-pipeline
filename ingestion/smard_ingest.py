@@ -31,6 +31,8 @@ SERIES = {
 }
 
 OVERLAP_MS = 8 * 24 * 60 * 60 * 1000
+# Series that stopped on purpose (Germany's nuclear phase-out, April 2023)
+ENDED_SERIES = {"nuclear"}
 
 
 def get_connection():
